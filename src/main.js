@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import { relativeTime } from '@/utils/datetime.js'
 import {
   Button,
   NavBar,
@@ -14,7 +15,13 @@ import {
   Tabs,
   List,
   PullRefresh,
-  Cell
+  Cell,
+  Grid,
+  GridItem,
+  Image,
+  Icon,
+  Lazyload,
+  Popup
 } from 'vant'
 import './style/index.less'
 // 表单验证插件导入
@@ -45,9 +52,15 @@ Vue
   .use(List)
   .use(PullRefresh)
   .use(Cell)
-
+  .use(Grid)
+  .use(GridItem)
+  .use(Image)
+  .use(Icon)
+  .use(Lazyload)
+  .use(Popup)
 Vue.config.productionTip = false
-
+// 全局过滤器
+Vue.filter('relativeTime', relativeTime)
 new Vue({
   router,
   store,

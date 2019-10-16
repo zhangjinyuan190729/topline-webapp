@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import tabbar from '@/views/tabbar'
 import Login from '@/views/login'
 import Home from '@/views/home'
+import Search from '@/views/search'
 
 Vue.use(VueRouter)
 
@@ -13,12 +14,17 @@ const router = new VueRouter({
       path: '/',
       redirect: '/login'
     },
+    { name: 'search',
+      path: '/search',
+      component: Search
+    },
     {
       name: 'login',
       path: '/login',
       component: Login
     },
     {
+      name: 'home',
       path: '/home',
       component: tabbar,
       children: [
